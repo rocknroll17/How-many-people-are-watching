@@ -1,25 +1,4 @@
-:root {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #334155;
-  --strong: #0f172a;
-  --live: #22c55e;
-  --idle: #94a3b8;
-  --skeleton: #e2e8f0;
-  --skeleton-highlight: #f1f5f9;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --text: #cbd5e1;
-    --strong: #f8fafc;
-    --idle: #64748b;
-    --skeleton: #334155;
-    --skeleton-highlight: #475569;
-  }
-}
+/* Page layout only. The badge brings its own styles from v1/counter.js. */
 
 body {
   display: flex;
@@ -29,80 +8,12 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0 16px;
-  background: var(--bg);
+  background: #f8fafc;
   font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
-.badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: 9999px;
-  background: var(--card);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  color: var(--text);
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-/* Pulses green while connected to the broker. */
-.dot {
-  flex: none;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--idle);
-  transition: background 0.3s;
-}
-
-.badge.live .dot {
-  background: var(--live);
-  animation: pulse 2s infinite;
-}
-
-.count {
-  color: var(--strong);
-  font-variant-numeric: tabular-nums;
-}
-
-/* Placeholder for the number until the first count arrives. */
-.skeleton {
-  display: inline-block;
-  width: 3.2em;
-  height: 1em;
-  border-radius: 6px;
-  vertical-align: -0.15em;
-  background: linear-gradient(90deg, var(--skeleton) 0%, var(--skeleton-highlight) 50%, var(--skeleton) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.2s infinite linear;
-}
-
-.label {
-  transition: opacity 0.25s;
-}
-
-.label.is-changing {
-  opacity: 0;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.9); }
-}
-
-@keyframes shimmer {
-  from { background-position: 200% 0; }
-  to { background-position: -200% 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .badge.live .dot,
-  .skeleton {
-    animation: none;
-  }
-
-  .label {
-    transition: none;
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0f172a;
   }
 }
