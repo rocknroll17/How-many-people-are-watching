@@ -1,4 +1,4 @@
-# How many people watching
+# How many people are watching
 
 A tiny static page that shows how many people are viewing it right now. There is no
 backend: browsers coordinate through a public MQTT broker, so it can be hosted on
